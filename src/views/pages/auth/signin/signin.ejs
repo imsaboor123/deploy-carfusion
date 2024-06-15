@@ -1,0 +1,24 @@
+<%- include('../../../layout/header.ejs'); %>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form class="tt-form-default02 tt-form-default02 tt-form-review" id="signin_form">
+                <h1 class="mb-5">SignIn</h1>
+                <div class="mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Email*" required />
+                </div>
+                <div class="">
+                    <input type="password" name="password" class="form-control" placeholder="Password*" required />
+                </div>
+                <div class="d-flex align-items-center">
+                    <button type="submit" class="btn mr-3">SignIn</button>
+                    <p>Don't Have Account? Please <a href="/sign-up">SignUp</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../../../layout/footer.ejs'); %>
+<script src="pages/auth/signin/signin.js"></script>

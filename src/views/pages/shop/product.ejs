@@ -1,0 +1,248 @@
+<%- include('../../layout/header.ejs'); %>
+
+<div class="tt-breadcrumb">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/shop">Shop</a></li>
+			<li><a href="/shop/<%= product.id %>"><%= product.title %></a></li>
+		</ul>
+	</div>
+</div>
+<div id="tt-pageContent">
+	<div class="container-indent-05">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-8">
+					<a href="/shop" class="tt-link-back">RETURN TO SHOP</a>
+					<div class="tt-title-single">
+						<h1 class="tt-title"><%= product.title %> <%= product.model %> <%= product.year %> - <%= product.brand %></h1>
+					</div>
+					<div class="tt-aside-btn visible-xs">
+						<a href="#" class="btn btn-color02" data-toggle="modal" data-target="#modalAddTestDrive"><i class="icon-testdrive"></i>TEST DRIVE</a>
+					</div>
+					<div class="tt-mobile-product-layout visible-xs">
+						<div class="tt-mobile-product-slider arrow-location-center slick-animated-show-js">
+							<div><img src="http://localhost:3000/images/product_02/product_03.jpg" alt=""></div>
+							<div><img src="http://localhost:3000/images/product_02/product_03_02.jpg" alt=""></div>
+							<div><img src="http://localhost:3000/images/product_02/product_03_03.jpg" alt=""></div>
+							<div><img src="http://localhost:3000/images/product_02/product_03_04.jpg" alt=""></div>
+							<div>
+								<div class="embed-responsive embed-responsive-16by9">
+									<iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
+								</div>
+							</div>
+							<div>
+								<div class="tt-video-block">
+									<a href="javascript:void(0)" class="link-video"></a>
+									<video class="movie" src="http://localhost:3000/video/video.mp4" poster="http://localhost:3000/video/video_img.jpg"></video>
+								</div>
+							</div>
+						</div>
+						<% if (product.type === "New") { %>
+							<div class="tt-label-location">
+								<span class="tt-label-promo"><%= product.type %></span>
+							</div>
+						<% } %>
+					</div>
+					<div class="tt-layout-preview hidden-xs">
+						<div class="tt-product-single-img">
+							<% if (product.type === "New") { %>
+								<div class="tt-label-location">
+									<span class="tt-label-promo">Great Deal!</span>
+								</div>
+							<% } %>
+							<div>
+								<img class="zoom-product  " style="width: 550px;"  src="http://localhost:3000/product/<%= product.images[0] %>" data-zoom-image="http://localhost:3000/product/<%= product.images[0] %>" alt="" />
+							</div>
+							
+						</div>
+						<% if (product.images.length > 0) { %>
+							<div class="product-images-carousel">
+								<ul id="smallGallery" class="tt-arrow-center-small slick-animated-show-js">
+									<% product.images.map((image, index) => { %>
+										<li>
+											<a href="javascript:void(0)" data-image="http://localhost:3000/product/<%= image %>" data-zoom-image="http://localhost:3000/product/<%= image %>">
+												<img src="http://localhost:3000/product/<%= image %>" alt="" />
+											</a>
+										</li>
+									<% }) %>
+								</ul>
+							</div>
+						<% } %>
+					</div>
+					
+					<div class="tt-box-indent">
+						<h6 class="tt-title-single-sub">Description</h6>
+						<div><%= product.description %></div>
+					</div>
+				</div>
+				<div class="col-12 col-md-4 js-sticky-sidebar">
+					<div class="tt-aside03-layout">
+						<div class="tt-aside-promo">
+							<div class="tt-wrapper">
+								<div class="tt-value">Rs. <%= product.price %></div>
+							</div>
+						</div>
+						<div class="tt-aside03-box">
+							<h6 class="tt-aside03-title">Options</h6>
+							<div class="tt-aside03-content">
+								<table class="tt-table-options">
+									<tbody>
+										<tr>
+											<td>CAR TYPE:</td>
+											<td><%= product.type %></td>
+										</tr>
+										<tr>
+											<td>MILEAGE:</td>
+											<td><%= product.mileage %></td>
+										</tr>
+										<tr>
+											<td>YEAR:</td>
+											<td><%= product.year %></td>
+										</tr>
+										<tr>
+											<td>MODEL:</td>
+											<td><%= product.model %></td>
+										</tr>
+										<tr>
+											<td>BRAND:</td>
+											<td><%= product.brand %></td>
+										</tr>
+										<tr>
+											<td>Color:</td>
+											<td><%= product.color %></td>
+										</tr>
+										<tr>
+											<td>INTERIOR:</td>
+											<td><%= product.interior %></td>
+										</tr>
+										<tr>
+											<td>EXTERIOR:</td>
+											<td><%= product.exterior %></td>
+										</tr>
+										<tr>
+											<td>ACCIDENTED:</td>
+											<td><%= product.accidented %></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="tt-aside-btn">
+							<a href="javascript:void(0)" class="btn btn-fullwidth" data-toggle="modal" data-target="#modalOfferPrice"><i class="icon-price-tag1"></i>MAKE AN OFFER PRICE</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-5">
+				<div class="col-12">
+					<div class="video-link-product" data-toggle="modal" data-type="video" data-target="#modalVideoProduct">
+						<iframe title="3D View Player" class="Player__iframe___f78Ef" src="<%= product.image_360 %>" frameborder="0" allowfullscreen allow="xr-spatial-tracking"></iframe>
+						<div><i class="icon-play"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent">
+		<div class="container">
+			<div class="tt-block-title">
+				<h3 class="tt-title">You May Also Be Interested In</h3>
+			</div>
+			<div class="js-carousel-col-4 tt-slider-product tt-arrow-center slick-alignment-arrows">
+				<% if (products.products.length > 0) { %>
+					<% products.products.forEach(product => { %>
+						<div class="tt-product-02">
+							<div class="tt-image-box">
+								<a href="/shop/<%= product.id %>" class="tt-img">
+									<img src="/product/<%= product.images[0] %>" alt="">
+									<span class="tt-label-location">
+										<% if (product.type === "New") { %>
+											<span class="tt-label-new">
+												<%= product.type %>
+											</span>
+										<% } %>
+									</span>
+									<span class="tt-data">Mileage: <%= product.mileage %></span>
+								</a>
+							</div>
+							<div class="tt-wrapper-description">
+								<div class="tt-row-01">
+									<div class="tt-box-title">
+										<h2 class="tt-title"><a href="/shop/<%= product.id %>"><%= product.title %></a></h2>
+										<div class="tt-description"><%= product.model %> - <%= product.year %></div>
+									</div>
+									<div class="tt-box-price">
+										<span class="tt-text">Price:</span>
+										<span class="tt-price">Rs. <%= product.price %></span>
+									</div>
+								</div>
+								<div class="tt-btn">
+									<a href="/shop/<%= product.id %>" class="tt-btn-moreinfo">more info</a>
+								</div>
+							</div>
+						</div>
+					<% }) %>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- modalVideoProduct -->
+<div class="modal fade" id="modalVideoProduct" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-video">
+        <div class="modal-content">
+            <div class="modal-body modal-layout-dafault">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="icon-close"></span></button>
+                <iframe title="3D View Player" class="Player__iframe___f78Ef" src="<%= product.image_360 %>" frameborder="0" allowfullscreen allow="xr-spatial-tracking"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal (OfferPrice) -->
+<div class="modal fade" id="modalOfferPrice" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content ">
+			<div class="modal-body modal-layout-dafault">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="icon-close"></span></button>
+				<h5 class="modal-title">Make an Offer Price</h5>
+				<p class="tt-default-color02">
+					What price do you think is more appropriate?
+				</p>
+				<form id="bidding_form">
+					<div class="tt-form-default02">
+						<div class="form-group">
+							<input type="hidden" name="productId" value="<%= product.id %>" />
+							<input type="text" name="price" class="form-control" placeholder="Your offer price" required />
+						</div>
+						<div class="form-group">
+							<input type="text" name="full_name" class="form-control" placeholder="Your name*" required />
+						</div>
+						<div class="row">
+							<div class="col-12 col-sm-6">
+								<div class="form-group">
+									<input type="email" name="email" class="form-control" placeholder="E-mail*" required />
+								</div>
+							</div>
+							<div class="col-12 col-sm-6">
+								<div class="form-group">
+									<input type="text" name="message" class="form-control" placeholder="Additional notes / Comments" required />
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="btn">ADD</button>
+					<div class="tt-modal-message">Form sent successfully</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include('../../layout/footer.ejs'); %>
+<script src="../pages/shop/product.js"></script>

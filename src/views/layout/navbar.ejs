@@ -1,0 +1,60 @@
+<div class="header-holder">
+    <div class="container">
+        <div class="row">
+            <!--logo-->
+            <div class="col-logo">
+                <a class="tt-logo" href="/">
+                    <img src="http://localhost:3000/images/logo.svg" class="tt-logo-light svg-img" alt="" />
+                    <img src="http://localhost:3000/images/logo-dark.svg" class="tt-logo-dark svg-img" alt="" />
+                </a>
+            </div>
+
+            <!--desctope-menu-->
+            <div class="col-menu col-auto mr-auto ">
+                <div class="tt-desctop-menu" id="tt-desctop-menu">
+                    <nav>
+                        <ul>
+                            <li class="<%= (pathname === '/' ? 'is-active' : '') %>">
+                                <a href="/">HOME</a>
+                            </li>
+                            <li class="<%= (pathname === '/about-us' ? 'is-active' : '') %>">
+                                <a href="/about-us">ABOUT US</a>
+                            </li>
+                            <li class="<%= (pathname === '/shop' ? 'is-active' : '') %>">
+                                <a href="/shop">SHOP</a>
+                            </li>
+                            <li class="<%= (pathname === '/blog' ? 'is-active' : '') %>">
+                                <a href="/blog">BLOG</a>
+                            </li>
+                            <li class="<%= (pathname === '/faq' ? 'is-active' : '') %>">
+                                <a href="/faq">FAQ</a>
+                            </li>
+                            <li class="<%= (pathname === '/contact' ? 'is-active' : '') %>">
+                                <a href="/contact">CONTACTS</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="col-btn-toggle-modal col-auto">
+                <% if (user) { %>
+                    <!--btn toggle modal-->
+                    <a class="btn mr-2" href="/profile">
+                        <span class="tt-text">MY ACCOUNT</span>
+                    </a>
+                    <a class="btn" href="/auth/signout/<%= user.id %>">SignOut</a>
+                <% }else{ %>
+                    <a class="btn" href="/sign-in">
+                        <i class="icon-addcar"></i><span class="tt-text">SignIn</span>
+                    </a>
+                <% } %>
+            </div>
+
+            <!--btn toggle mobile menu-->
+            <div class="col-menu-toggle col-auto">
+                <a href="#" class="tt-menu-toggle icon-menu"></a>
+            </div>
+        </div>
+    </div>
+</div>

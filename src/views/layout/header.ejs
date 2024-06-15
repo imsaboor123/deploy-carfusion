@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="HTML5 Template" />
+	<meta name="description" content="CarLeader - Responsive HTML5 Template" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CarStore</title>
+
+    <link rel="shortcut icon" href="http://localhost:3000/favicon.ico" />
+	<link rel="preconnect" href="https://fonts.googleapis.com/" />
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Open+Sans:wght@300;400;500;600;700&amp;display=swap" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://localhost:3000/css/style.css" />
+</head>
+<body>
+
+	<!-- tt-mobile menu -->
+	<nav class="panel-menu" id="mobile-menu">
+		<ul></ul>
+		<div class="mm-navbtn-names">
+			<div class="mm-closebtn">Close</div>
+			<div class="mm-backbtn">Back</div>
+		</div>
+	</nav>
+
+	<header id="tt-header" class="<%= (pathname === "/" ? "tt-on-top" : "") %> tt-header-01">
+		<%- include('./topbar.ejs'); %>
+		<%- include('./navbar.ejs'); %>
+
+		<!-- cursor -->
+		<div id="cursor"></div>
+
+		<!-- stuck nav -->
+		<div id="tt-stuck">
+			<div class="container">
+				<div class="tt-stuck-row"></div>
+			</div>
+		</div>
+	</header>

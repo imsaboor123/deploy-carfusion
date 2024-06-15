@@ -1,0 +1,253 @@
+<%- include('../../layout/header.ejs'); %>
+
+<div class="tt-breadcrumb">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/contact">Contact</a></li>
+		</ul>
+	</div>
+</div>
+<div id="tt-pageContent">
+	<div class="container-indent-04">
+		<div class="container">
+			<div class="tt-block-title tt-sub-pages">
+				<h1 class="tt-title">Contacts</h1>
+				<div class="tt-description">let's get in touch</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<div class="box-info box-info-indent">
+						<h3 class="tt-title">Contact Information</h3>
+						<div class="tt-item-layout">
+							<div class="tt-item">
+								<div class="tt-col">
+									<i class="icon-149984"></i>
+									Address:
+								</div>
+								<div class="tt-col">
+									Sindh Univercity Jamshoro , Software Department
+								</div>
+							</div>
+							<div class="tt-item">
+								<div class="tt-col">
+									<i class="icon-15874"></i>
+									Phone:
+								</div>
+								<div class="tt-col">
+									+01 123 456 78
+								</div>
+							</div>
+							<div class="tt-item">
+								<div class="tt-col">
+									<i class="icon-mail"></i>
+									E-mail:
+								</div>
+								<div class="tt-col">
+									info@youremal.com
+								</div>
+							</div>
+							<div class="tt-item">
+								<div class="tt-col">
+									<i class="icon-icon"></i>
+									Working time:
+								</div>
+								<div class="tt-col">
+									<strong>Sales Department</strong>
+									<p>
+										Mon-Sat: 8:00am - 5:00pm<br>Sunday is closed
+									</p>
+									<strong>Service Department</strong>
+									<p>
+										Mon-Sat: 8:00am - 5:00pm<br>Sunday is closed
+									</p>
+								</div>
+							</div>
+						</div>
+						<h3 class="tt-title">Stay Connected</h3>
+						<ul class="tt-social-icon">
+							<li><a href="javascript:void(0)" class="icon-226234"></a></li>
+							<li><a href="javascript:void(0)" class="icon-8800"></a></li>
+							<li><a href="javascript:void(0)" class="icon-733613"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="divider divider--lg visible-xs"></div>
+				<div class="col-12 col-md-6">
+					<h6 class="tt-title-default">Get in touch</h6>
+					<p>
+						Car Fusion has a strong and committed sales staff with many years of experience satisfying our customers’ needs. Feel free to browse our massive inventory online, set up a test drive with a sales associate, or inquire about financing!
+					</p>
+					<form id="contact_form" class="tt-form-default02 tt-form-review">
+						<div class="tt-form-aside">
+							<div class="form-group">
+								<input type="text" name="full_name" class="form-control" id="inputName" placeholder="Your name*" required />
+							</div>
+							<div class="form-group">
+								<input type="email" name="email" class="form-control" id="inputEmail" placeholder="E-mail*" required />
+							</div>
+							<div class="form-group">
+								<textarea name="message" class="form-control" placeholder="Message" id="textareaMessage" required></textarea>
+							</div>
+							<button type="submit" class="btn btn-wide">LEAVE A MESSAGE</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- modal (AddToCartProduct) -->
+<div class="modal fade" id="modalAddYourItem" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content ">
+			<div class="modal-body modal-layout-dafault">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="icon-close"></span></button>
+				<h5 class="modal-title">Add your Item</h5>
+				<p class="tt-default-color02">
+					Trading in your current car can help serve as a springboard into your new one. One of our team members will be in touch with a quote for your trade in right away.
+				</p>
+				<form class="tt-form-default02 tt-form-default02 tt-form-review" id="formAddYourItem" method="post" novalidate="novalidate" action="#">
+					<div class="form-group">
+						<input type="text" name="name" class="form-control" placeholder="Your name*">
+					</div>
+					<div class="row">
+						<div class="col-12 col-sm-6">
+							<div class="form-group">
+								<input type="email" name="email" class="form-control" placeholder="E-mail*">
+							</div>
+						</div>
+						<div class="col-12 col-sm-6">
+							<div class="form-group">
+								<input type="text" name="phone" class="form-control" placeholder="Phone #">
+							</div>
+						</div>
+					</div>
+					<h6 class="tt-title">Vehicle Info</h6>
+					<div class="form-group tt-row-select tt-skinSelect-01">
+						<select name="year" class="tt-select">
+							<option value="YEAR" disabled selected>YEAR</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+						</select>
+						<select name="select-a-make" class="tt-select">
+							<option value="SELECT A MAKE" disabled selected>SELECT A MAKE</option>
+							<option value="KIA">KIA</option>
+							<option value="CHEVROLET">CHEVROLET</option>
+							<option value="VOLKSWAGEN">VOLKSWAGEN</option>
+							<option value="AUDI">AUDI</option>
+							<option value="NISSAN">NISSAN</option>
+							<option value="LEXUS">LEXUS</option>
+							<option value="SUBARU">SUBARU</option>
+							<option value="SUZUKI">SUZUKI</option>
+						</select>
+						<select name="select-a-model" class="tt-select">
+							<option value="SELECT A MODEL" disabled selected>SELECT A MODEL</option>
+							<option value="SEDAN">SEDAN</option>
+							<option value="HATCHBACK">HATCHBACK</option>
+							<option value="SPORT CARS">SPORT CARS</option>
+							<option value="SUV">SUV</option>
+							<option value="Pickups">PICKUPS</option>
+							<option value="CONVERTIBLE">CONVERTIBLE</option>
+							<option value="COUPE">COUPE</option>
+							<option value="MINIVAN">MINIVAN</option>
+						</select>
+						<select  name="select-a-mileage" class="tt-select">
+							<option value="PRICE" disabled selected>MILEAGE</option>
+							<option value="10000 miles">10000 miles</option>
+							<option value="50000 miles">50000 miles</option>
+							<option value="100000 miles">100000 miles</option>
+						</select>
+					</div>
+					<div class="tt-row-radio">
+						<div class="tt-title">Exterior Condition*</div>
+						<div>
+							<label class="radio">
+								<input id="radio11" checked="" type="radio" name="radio1" value="CLEAN">
+								<span class="outer"><span class="inner"></span></span>CLEAN
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input id="radio12" type="radio" name="radio1" value="AVERAG">
+								<span class="outer"><span class="inner"></span></span>AVERAG
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input id="radio13" type="radio" name="radio1" value="ROUGH">
+								<span class="outer"><span class="inner"></span></span>ROUGH
+							</label>
+						</div>
+					</div>
+					<div class="tt-row-radio">
+						<div class="tt-title">Interior Condition*</div>
+						<div>
+							<label class="radio">
+								<input id="radio21" checked="" type="radio" name="radio2" value="CLEAN">
+								<span class="outer"><span class="inner"></span></span>CLEAN
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input id="radio22" type="radio" name="radio2" value="AVERAG">
+								<span class="outer"><span class="inner"></span></span>AVERAG
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input id="radio23" type="radio" name="radio2" value="ROUGH">
+								<span class="outer"><span class="inner"></span></span>ROUGH
+							</label>
+						</div>
+					</div>
+					<div class="tt-row-radio">
+						<div class="tt-title">Been in Accident?*</div>
+						<div>
+							<label class="radio">
+								<input id="radio31" checked="" type="radio" name="radio3"  value="NO">
+								<span class="outer"><span class="inner"></span></span>NO
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input id="radio32" type="radio" name="radio3"  value="YES">
+								<span class="outer"><span class="inner"></span></span>YES
+							</label>
+						</div>
+					</div>
+					<h6 class="tt-title">Upload your car Photos</h6>
+					<div class="input-group tt-input-file">
+		                <label class="input-group-btn">
+		                    <span class="tt-btn-icon">
+		                        choose file... <input name="upload" type="file" style="display: none;" multiple accept="image/*">
+		                    </span>
+		                </label>
+		                <input type="text" readonly>
+		            </div>
+					<ul class="list-form-column">
+						<li>
+							<div class="checkbox-group">
+								<input type="checkbox" id="checkBox11" name="checkbox" checked>
+								<label for="checkBox11">
+								<span class="check"></span>
+								<span class="box"></span>
+								I AGREE TO RECEIVE EMAILS FROM Car Fusion
+								</label>
+							</div>
+						</li>
+					</ul>
+					<button type="submit" class="btn">ADD</button>
+					<div class="tt-modal-message">Form sent successfully</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include('../../layout/footer.ejs'); %>
+<script src="pages/contact/contact.js"></script>

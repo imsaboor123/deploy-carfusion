@@ -1,0 +1,316 @@
+<%- include('../../../layout/header.ejs'); %>
+
+<div class="container my-5">
+	<div class="row">
+		<div class="col-lg-2">
+			<div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="display: flex; flex-direction: column;">
+				<a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profile</a>
+				<a class="nav-link" id="v-pills-manage-car-tab" data-toggle="pill" href="#v-pills-manage-car" role="tab" aria-controls="v-pills-manage-car" aria-selected="false">Manage Cars</a>
+				<a class="nav-link" id="v-pills-manage-blog-tab" data-toggle="pill" href="#v-pills-manage-blog" role="tab" aria-controls="v-pills-manage-blog" aria-selected="false">Manage Blogs</a>
+				<a class="nav-link" id="v-pills-manage-bidding-tab" data-toggle="pill" href="#v-pills-manage-bidding" role="tab" aria-controls="v-pills-manage-bidding" aria-selected="false">Manage Biddings</a>
+			</div>
+		</div>
+		<div class="col-lg-10">
+			<div class="tab-content" id="v-pills-tabContent">
+				<div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+					<form id="profile_form">
+						<h4 class="mb-2">Update Profile Info</h4>
+						<p class="mb-4">Fill your password to update profile</p>
+						<div class="row mb-3">
+							<div class="col-6">
+								<input type="hidden" name="userId" value="<%= user.id %>" />
+								<input type="text" name="first_name" class="form-control" placeholder="First Name" value="<%= user.first_name %>" required />
+							</div>
+							<div class="col-6">
+								<input type="text" name="last_name" class="form-control" placeholder="Last Name" value="<%= user.last_name %>" required />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-6">
+								<input type="email" name="email" class="form-control" placeholder="Email" value="<%= user.email %>" required />
+							</div>
+							<div class="col-6">
+								<input type="tel" name="phone" class="form-control" placeholder="Phone Number" value="<%= user.phone %>" required />
+							</div>
+						</div>
+						<div class="mb-3">
+							<input type="password" name="password" class="form-control" placeholder="Password" required />
+						</div>
+						<button type="submit" class="btn">Update Profile</button>
+					</form>
+				</div>
+				<div class="tab-pane fade" id="v-pills-manage-car" role="tabpanel" aria-labelledby="v-pills-manage-car-tab">
+					<a class="btn btn-toggle-modal mb-3" href="#" data-toggle="modal" data-target="#modalAddYourCar">
+						<i class="icon-addcar"></i><span class="tt-text">ADD YOUR CAR</span>
+					</a>
+		
+					<table class="table table-bordered text-center align-middle">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Image</th>
+								<th>Title</th>
+								<th>Color</th>
+								<th>Price</th>
+								<th>Interior</th>
+								<th>Exterior</th>
+								<th>Mileage</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% if (products.products.length > 0) { %>
+								<% products.products.map((product, index) => { %>
+									<tr>
+										<td><%= index+1 %></td>
+										<td>
+											<img src="http://localhost:3000/product/<%= product.images[0] %>" style="width: 50px; height: 50px; object-fit: cover; object-position: center;" alt="" />
+										</td>
+										<td><%= product.title %></td>
+										<td><%= product.color %></td>
+										<td><%= product.price %></td>
+										<td><%= product.interior %></td>
+										<td><%= product.exterior %></td>
+										<td><%= product.mileage %></td>
+										<td><button id="delete_product" data-id="<%= product.id %>" class="btn">Delete</button></td>
+									</tr>
+								<% }) %>
+							<% }else{ %>
+								<tr>
+									<td colspan="9" class="text-center">No Product Found</td>
+								</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+				<div class="tab-pane fade" id="v-pills-manage-blog" role="tabpanel" aria-labelledby="v-pills-manage-blog-tab">
+					<a class="btn btn-toggle-modal mb-3" href="#" data-toggle="modal" data-target="#modalAddYourBlog">
+						<i class="icon-addcar"></i><span class="tt-text">ADD YOUR BLOG</span>
+					</a>
+		
+					<table class="table table-bordered text-center align-middle">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Image</th>
+								<th>Title</th>
+								<th>Category</th>
+								<th>Description</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% if (blogs.posts.length > 0) { %>
+								<% blogs.posts.map((post, index) => { %>
+									<tr>
+										<td><%= index+1 %></td>
+										<td>
+											<img src="http://localhost:3000/blogpost/<%= post.thumbnail %>" style="width: 50px; height: 50px; object-fit: cover; object-position: center;" alt="" />
+										</td>
+										<td><%= post.title %></td>
+										<td><%= post.category %></td>
+										<td><%= post.description %></td>
+										<td><button id="delete_post" data-id="<%= post.id %>" class="btn">Delete</button></td>
+									</tr>
+								<% }) %>
+							<% }else{ %>
+								<tr>
+									<td colspan="6" class="text-center">No Post Found</td>
+								</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+				<div class="tab-pane fade" id="v-pills-manage-bidding" role="tabpanel" aria-labelledby="v-pills-manage-bidding-tab">
+					<div class="row">
+						<% if (bids.length > 0) { %>
+							<% bids.map((bid, index) => { %>
+								<% products.products.map(_product => { %>
+									<% if (_product.id == bid.productId) { %>
+										<div class="col-md-4 mb-5">
+											<div class="card">
+												<img class="card-img-top" src="http://localhost:3000/product/<%= _product.images[0] %>" alt="Card image cap">
+												<div class="card-body">
+													<h5 class="card-title"><%= _product.title %></h5>
+													<p class="m-0">Buyer Price: <b><%= bid.price %></b></p>
+													<p class="m-0">Buyer Name: <b><%= bid.full_name %></b></p>
+													<p class="m-0">Buyer Email: <b><%= bid.email %></b></p>
+													<p class="m-0">Buyer Message: <b><%= bid.message %></b></p>
+													<a href="http://localhost:3000/shop/<%= _product.id %>" class="btn btn-primary">Go to Product</a>
+												</div>
+											</div>
+										</div>
+									<% } %>
+								<% }) %>
+							<% }) %>
+						<% }else{ %>
+							<h2 class="text-center">No Product Found</h2>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- modal (AddToCartProduct) -->
+<div class="modal fade" id="modalAddYourCar" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-body modal-layout-dafault">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="icon-close"></span></button>
+				<h5 class="modal-title">Add Your Car</h5>
+				<p class="tt-default-color02">
+					Trading in your current car can help serve as a springboard into your new one. One of our team members will be in touch with a quote for your trade in right away.
+				</p>
+				<form class="tt-form-default02 tt-form-default02 tt-form-review" id="addcar_form">
+					<div class="form-group">
+						<input type="hidden" name="userId" value="<%= (user) ? user.id : '' %>" />
+						<input type="text" name="title" class="form-control" placeholder="Car Name*" required />
+					</div>
+					<h6 class="tt-title">Vehicle Info</h6>
+					<div class="form-group tt-row-select tt-skinSelect-01">
+						<input type="text" name="brand" class="form-control" placeholder="Brand*" required />
+						<input type="text" name="model" class="form-control" placeholder="Model*" required />
+						<input type="text" name="year" class="form-control" placeholder="Year*" required />
+					</div>
+					<div class="form-group tt-row-select tt-skinSelect-01">
+						<input type="text" name="color" class="form-control" placeholder="Color*" required />
+						<input type="text" name="mileage" class="form-control" placeholder="Mileage*" required />
+						<input type="text" name="price" class="form-control" placeholder="Price*" required />
+					</div>
+					<div class="tt-row-radio">
+						<div class="tt-title">Car Type?*</div>
+						<div>
+							<label class="radio">
+								<input type="radio" name="type" value="Old" checked />
+								<span class="outer"><span class="inner"></span></span>Old
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input type="radio" name="type" value="New" />
+								<span class="outer"><span class="inner"></span></span>New
+							</label>
+						</div>
+					</div>
+					<div class="tt-row-radio">
+						<div class="tt-title">Exterior Condition*</div>
+						<div>
+							<label class="radio">
+								<input type="radio" name="exterior" value="Clean" checked />
+								<span class="outer"><span class="inner"></span></span>Clean
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input type="radio" name="exterior" value="Average" />
+								<span class="outer"><span class="inner"></span></span>Average
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input type="radio" name="exterior" value="Rough" />
+								<span class="outer"><span class="inner"></span></span>Rough
+							</label>
+						</div>
+					</div>
+					<div class="tt-row-radio">
+						<div class="tt-title">Interior Condition*</div>
+						<div>
+							<label class="radio">
+								<input type="radio" name="interior" value="Clean" checked />
+								<span class="outer"><span class="inner"></span></span>Clean
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input type="radio" name="interior" value="Average" />
+								<span class="outer"><span class="inner"></span></span>Average
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input type="radio" name="interior" value="Rough" />
+								<span class="outer"><span class="inner"></span></span>Rough
+							</label>
+						</div>
+					</div>
+					<div class="tt-row-radio">
+						<div class="tt-title">Been in Accident?*</div>
+						<div>
+							<label class="radio">
+								<input type="radio" name="accidented" value="No" checked />
+								<span class="outer"><span class="inner"></span></span>No
+							</label>
+						</div>
+						<div>
+							<label class="radio">
+								<input type="radio" name="accidented" value="Yes" />
+								<span class="outer"><span class="inner"></span></span>Yes
+							</label>
+						</div>
+					</div>
+					<h6 class="tt-title">Upload your car Photos</h6>
+					<div class="input-group tt-input-file">
+		                <label class="input-group-btn">
+		                    <span class="tt-btn-icon">
+		                        choose file... <input name="images" type="file" style="display: none;" multiple accept="image/*" required />
+		                    </span>
+		                </label>
+		                <input type="text" readonly>
+		            </div>
+					<div class="form-group">
+						<input type="url" name="image_360" class="form-control" placeholder="Please Write a URL of 360 Image*" required />
+					</div>
+					<div class="form-group">
+						<textarea name="description" rows="5" class="form-control"></textarea>
+					</div>
+					<button type="submit" class="btn">ADD</button>
+					<div class="tt-modal-message">Form sent successfully</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ADD Your Item End -->
+
+
+<!-- modal (AddToCartBlog) -->
+<div class="modal fade" id="modalAddYourBlog" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-body modal-layout-dafault">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="icon-close"></span></button>
+				<h5 class="modal-title">Add Your Blog</h5>
+				<form class="tt-form-default02 tt-form-default02 tt-form-review" id="addblog_form">
+					<div class="form-group">
+						<input type="hidden" name="userId" value="<%= (user) ? user.id : '' %>" />
+						<input type="text" name="title" class="form-control" placeholder="Title*" required />
+					</div>
+					<div class="form-group">
+						<input type="text" name="category" class="form-control" placeholder="Category*" required />
+					</div>
+					<div class="form-group">
+						<textarea name="description" rows="4" class="form-control" placeholder="Description*" required></textarea>
+					</div>
+					<div class="input-group tt-input-file">
+		                <label class="input-group-btn">
+		                    <span class="tt-btn-icon">
+		                        Choose Thumbnail <input name="thumbnail" type="file" style="display: none;" accept="image/*" required />
+		                    </span>
+		                </label>
+		                <input type="text" readonly>
+		            </div>
+					<button type="submit" class="btn">ADD</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ADD Your Item End -->
+
+
+<%- include('../../../layout/footer.ejs'); %>
+<script src="pages/auth/profile/profile.js"></script>

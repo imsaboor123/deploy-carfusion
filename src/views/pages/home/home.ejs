@@ -1,0 +1,704 @@
+<%- include('../../layout/header.ejs'); %>
+
+<div id="tt-pageContent">
+	<div class="container-indent no-margin">
+		<div class="mainSlider-layout">
+			<div class="loading-content">
+				<div class="loading-dots">
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+				</div>
+			</div>
+			<!-- mainSlider start -->
+			<div class="mainSlider">
+				<div class="slide">
+					<div class="img--holder" data-bg="http://localhost:3000/images/slider/car3.jpeg"></div>
+					<div class="slide-content">
+						<div class="container" data-animation="fadeInUpSm" data-animation-delay="0s">
+							<a href="javascript:void(0)" class="tt-caption-custom">
+								<div class="tt-title">
+									<div class="text-small">We Don't Sell Cars</div>
+									<div class="text-large">We Sell<br>a DREAM</div>
+								</div>
+								<span><i class="icon-handsshake"></i>Get Approved</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="slide">
+					<div class="img--holder"  data-bg="http://localhost:3000/images/slider/car6.jpg"></div>
+					<div class="slide-content">
+						<div class="container" data-animation="fadeInUpSm" data-animation-delay="0s">
+							<div class="tp-caption-01-01" >Shop Cars for Sale</div>
+							<div class="tp-caption-01-02">HUGE DISCOUNTS<br>up to <span class="tt-default-color">25%</span></div>
+							<div class="tp-caption-01-03">COMPLETE HAPPINESS</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent no-margin">
+		<div class="container tt-container-fluid-mobile" style="position: relative !important;">
+			<form id="filter_form">
+				<div class="tt-search-filter">
+					<i class="tt-icon-filter icon-carsearch"></i>
+					<div class="tt-col-title">
+						Find Your<br> Perfect Car
+					</div>
+					<div class="tt-col-select visible-desctope tt-skinSelect-01">
+						<select class="tt-select" name="type">
+							<option disabled selected>TYPE</option>
+							<% if (products.products.length > 0) { %>
+								<% const uniqueTypes = Array.from(new Set(products.products.map(product => product.type))) %>
+								<% uniqueTypes.forEach(type => { %>
+									<option value="<%= type %>"><%= type %></option>
+								<% }) %>
+							<% } %>
+						</select>
+						<select class="tt-select" name="year">
+							<option disabled selected>YEAR</option>
+							<% if (products.products.length > 0) { %>
+								<% const uniqueTypes = Array.from(new Set(products.products.map(product => product.year))) %>
+								<% uniqueTypes.forEach(year => { %>
+									<option value="<%= year %>"><%= year %></option>
+								<% }) %>
+							<% } %>
+						</select>
+						<select class="tt-select" name="brand">
+							<option disabled selected>SELECT BRAND NAME</option>
+							<% if (products.products.length > 0) { %>
+								<% const uniqueTypes = Array.from(new Set(products.products.map(product => product.brand))) %>
+								<% uniqueTypes.forEach(brand => { %>
+									<option value="<%= brand %>"><%= brand %></option>
+								<% }) %>
+							<% } %>
+						</select>
+						<select class="tt-select" name="model">
+							<option disabled selected>SELECT A MODEL</option>
+							<% if (products.products.length > 0) { %>
+								<% const uniqueTypes = Array.from(new Set(products.products.map(product => product.model))) %>
+								<% uniqueTypes.forEach(model => { %>
+									<option value="<%= model %>"><%= model %></option>
+								<% }) %>
+							<% } %>
+						</select>
+						<select class="tt-select" name="accidented">
+							<option disabled selected>IS ACCIDENTED ?</option>
+							<% if (products.products.length > 0) { %>
+								<% const uniqueTypes = Array.from(new Set(products.products.map(product => product.accidented))) %>
+								<% uniqueTypes.forEach(accidented => { %>
+									<option value="<%= accidented %>"><%= accidented %></option>
+								<% }) %>
+							<% } %>
+						</select>
+						<div class="tt-col-btn ml-3">
+							<button type="submit" class="btn tt-icon-left">
+								<i class="icon-musica-searcher"></i>
+								<span class="tt-mobile-hide">294&nbsp;</span>CARS
+							</button>
+						</div>
+					</div>
+					<div class="tt-col-select visible-device tt-skinSelect-01">
+						<select class="tt-select">
+							<option disabled selected>TYPE</option>
+							<% if (products.products.length > 0) { %>
+								<% const uniqueTypes = Array.from(new Set(products.products.map(product => product.type))) %>
+								<% uniqueTypes.forEach(type => { %>
+									<option value="<%= type %>"><%= type %></option>
+								<% }) %>
+							<% } %>
+						</select>
+						<select class="tt-select">
+							<option disabled selected>YEAR</option>
+							<% if (products.products.length > 0) { %>
+								<% const uniqueTypes = Array.from(new Set(products.products.map(product => product.year))) %>
+								<% uniqueTypes.forEach(year => { %>
+									<option value="<%= year %>"><%= year %></option>
+								<% }) %>
+							<% } %>
+						</select>
+						<select class="tt-select">
+							<option disabled selected>SELECT BRAND NAME</option>
+							<% if (products.products.length > 0) { %>
+								<% const uniqueTypes = Array.from(new Set(products.products.map(product => product.brand))) %>
+								<% uniqueTypes.forEach(brand => { %>
+									<option value="<%= brand %>"><%= brand %></option>
+								<% }) %>
+							<% } %>
+						</select>
+						<select class="tt-select">
+							<option disabled selected>SELECT A MODEL</option>
+							<% if (products.products.length > 0) { %>
+								<% const uniqueTypes = Array.from(new Set(products.products.map(product => product.model))) %>
+								<% uniqueTypes.forEach(model => { %>
+									<option value="<%= model %>"><%= model %></option>
+								<% }) %>
+							<% } %>
+						</select>
+						<select class="tt-select">
+							<option disabled selected>IS ACCIDENTED ?</option>
+							<% if (products.products.length > 0) { %>
+								<% const uniqueTypes = Array.from(new Set(products.products.map(product => product.accidented))) %>
+								<% uniqueTypes.forEach(accidented => { %>
+									<option value="<%= accidented %>"><%= accidented %></option>
+								<% }) %>
+							<% } %>
+						</select>
+						<div class="tt-btn">
+							<button type="submit" class="btn tt-icon-left">
+								<i class="icon-musica-searcher"></i>
+								<span class="tt-mobile-hide">294&nbsp;</span>CARS
+							</button>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div id="filter_result" style=" display: none; position: absolute !important; top: 115%; left: 0; width: 100%; z-index: 5; background: white; box-shadow: 0 5px 40px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0, 0, 0, 0.05); padding: 20px;"></div>
+		</div>
+	</div>
+
+	<div class="container-indent">
+		<div class="container">
+			<div class="tt-block-title">
+				<h1 class="tt-title">Welcome to <span class="tt-defaul-color">Car</span> Fusion</h1>
+				<div class="tt-description">The Easiest Way to Find Your Next Car</div>
+			</div>
+			<div class="tt-text-center ws-short-structure">
+				For 25 years, Car Fusion has been raising the standard of used car retailing with one of the most innovative and reliable used vehicle programmes ever created. A comprehensive range of benefits as standard has evolved over time and, today, drivers can leave the forecourt with total reassurance and peace of mind.
+				<span class="tt-hide-block">
+					For used vehicles, we calculate a fair retail price based on a detailed analysis of comparable current and previous car listings in a given market. We call this estimate the Car Fusion Instant Market Value.
+				</span>
+			</div>
+			<div class="ws-short-btn">
+				<a href="javascript:void(0)" target="_blank" class="ws-btn-more">READ MORE</a>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent-02">
+		<div class="container-fluid">
+			<div class="tt-block-title">
+				<h3 class="tt-title">Types of Vehicle</h3>
+				<div class="tt-description">NEW &amp; USED CARS FOR SALE</div>
+			</div>
+			<!--carusel-->
+			<div class="js-carousel tt-arrow-center-fluid tt-arrow-color02 slick-alignment-arrows" data-item="5" data-dots="true">
+				<a href="javascript:void(0)" class="tt-media-02">
+					<img src="http://localhost:3000/images/custom/media02-img-01.jpg" alt="">
+					<div class="tt-description">
+						<h5 class="tt-title">Sedan <span class="tt-total">12 <span>Offers</span></span></h5>
+						<span class="tt-link-marker">view cars</span>
+					</div>
+				</a>
+				<a href="javascript:void(0)" class="tt-media-02">
+					<img src="http://localhost:3000/images/custom/media02-img-02.jpg" alt="">
+					<div class="tt-description">
+						<h5 class="tt-title">Hatchback <span class="tt-total">7 <span>Offers</span></span></h5>
+						<span class="tt-link-marker">view cars</span>
+					</div>
+				</a>
+				<a href="javascript:void(0)" class="tt-media-02">
+					<img src="http://localhost:3000/images/custom/media02-img-03.jpg" alt="">
+					<div class="tt-description">
+						<h5 class="tt-title">Sport Cars <span class="tt-total">9 <span>Offers</span></span></h5>
+						<span class="tt-link-marker">view cars</span>
+					</div>
+				</a>
+				<a href="javascript:void(0)" class="tt-media-02">
+					<img src="http://localhost:3000/images/custom/media02-img-04.jpg" alt="">
+					<div class="tt-description">
+						<h5 class="tt-title">SUV <span class="tt-total">25 <span>Offers</span></span></h5>
+						<span class="tt-link-marker">view cars</span>
+					</div>
+				</a>
+				<a href="javascript:void(0)" class="tt-media-02">
+					<img src="http://localhost:3000/images/custom/media02-img-05.jpg" alt="">
+					<div class="tt-description">
+						<h5 class="tt-title">Pickups <span class="tt-total">9 <span>Offers</span></span></h5>
+						<span class="tt-link-marker">view cars</span>
+					</div>
+				</a>
+				<a href="javascript:void(0)" class="tt-media-02">
+					<img src="http://localhost:3000/images/custom/media02-img-06.jpg" alt="">
+					<div class="tt-description">
+						<h5 class="tt-title">Convertible <span class="tt-total">9 <span>Offers</span></span></h5>
+						<span class="tt-link-marker">view cars</span>
+					</div>
+				</a>
+				<a href="javascript:void(0)" class="tt-media-02">
+					<img src="http://localhost:3000/images/custom/media02-img-07.jpg" alt="">
+					<div class="tt-description">
+						<h5 class="tt-title">Coupe <span class="tt-total">11 <span>Offers</span></span></h5>
+						<span class="tt-link-marker">view cars</span>
+					</div>
+				</a>
+				<a href="javascript:void(0)" class="tt-media-02">
+					<img src="http://localhost:3000/images/custom/media02-img-08.jpg" alt="">
+					<div class="tt-description">
+						<h5 class="tt-title">Minivan <span class="tt-total">9 <span>Offers</span></span></h5>
+						<span class="tt-link-marker">view cars</span>
+					</div>
+				</a>
+			</div>
+			<!--/carusel-->
+		</div>
+	</div>
+	<div class="container-indent">
+		<div class="container">
+			<div class="tt-block-title">
+				<h3 class="tt-title">Browse By Type</h3>
+				<div class="tt-description">We work with brands</div>
+				<a href="javascript:void(0)" class="tt-link-redirect">SHOW ALL TYPES</a>
+			</div>
+			<!--carusel-->
+			<div class="js-carousel-brand tt-arrow-center slick-alignment-arrows">
+				<a class="tt-brand" href="javascript:void(0)" target="_blank">
+					<div class="tt-img">
+						<img src='images/custom/brand_img01.png' alt="">
+					</div>
+					<h6 class="tt-title">KOA (7)</h6>
+				</a>
+				<a class="tt-brand" href="javascript:void(0)" target="_blank">
+					<div class="tt-img">
+						<img src='images/custom/brand_img02.png' alt="">
+					</div>
+					<h6 class="tt-title">Levro (10)</h6>
+				</a>
+				<a class="tt-brand" href="javascript:void(0)" target="_blank">
+					<div class="tt-img">
+						<img src='images/custom/brand_img03.png' alt="">
+					</div>
+					<h6 class="tt-title">Porserg (25)</h6>
+				</a>
+				<a class="tt-brand" href="javascript:void(0)" target="_blank">
+					<div class="tt-img">
+						<img src='images/custom/brand_img04.png' alt="">
+					</div>
+					<h6 class="tt-title">Seretta (13)</h6>
+				</a>
+				<a class="tt-brand" href="javascript:void(0)" target="_blank">
+					<div class="tt-img">
+						<img src='images/custom/brand_img05.png' alt="">
+					</div>
+					<h6 class="tt-title">Dossan (21)</h6>
+				</a>
+				<a class="tt-brand" href="javascript:void(0)" target="_blank">
+					<div class="tt-img">
+						<img src='images/custom/brand_img06.png' alt="">
+					</div>
+					<h6 class="tt-title">Noex (5)</h6>
+				</a>
+				<a class="tt-brand" href="javascript:void(0)" target="_blank">
+					<div class="tt-img">
+						<img src='images/custom/brand_img07.png' alt="">
+					</div>
+					<h6 class="tt-title">Winger (17)</h6>
+				</a>
+				<a class="tt-brand" href="javascript:void(0)" target="_blank">
+					<div class="tt-img">
+						<img src='images/custom/brand_img08.png' alt="">
+					</div>
+					<h6 class="tt-title">WMB (6)</h6>
+				</a>
+				<a class="tt-brand" href="javascript:void(0)" target="_blank">
+					<div class="tt-img">
+						<img src='images/custom/brand_img09.png' alt="">
+					</div>
+					<h6 class="tt-title">Jeex (6)</h6>
+				</a>
+				<a class="tt-brand" href="javascript:void(0)" target="_blank">
+					<div class="tt-img">
+						<img src='images/custom/brand_img10.png' alt="">
+					</div>
+					<h6 class="tt-title">Auster (6)</h6>
+				</a>
+			</div>
+			<!--/carusel-->
+		</div>
+	</div>
+	<div class="container-indent">
+		<div class="tt-promo-02" data-bg="http://localhost:3000/images/custom/box-parallax02.jpg">
+			<div class="container">
+				<div class="tt-block-title">
+					<h3 class="tt-title">We Make It Easy</h3>
+					<div class="tt-description">How It Works</div>
+				</div>
+				<div class="tt-promo-02-layout">
+					<a href="/shop" class="tt-item">
+						<div class="box-icon">
+							<div class="tt-line-dotted tt-right"></div>
+							<i class="icon-carsearch2"></i>
+						</div>
+						<h6 class="tt-title">View Our Inventory</h6>
+					</a>
+					<div class="tt-item-smal">
+						<div class="box-icon">
+							<i class="icon-right-arrow"></i>
+						</div>
+					</div>
+					<a href="/faq" class="tt-item">
+						<div class="box-icon">
+							<div class="tt-line-dotted tt-left"></div>
+							<div class="tt-line-dotted tt-right"></div>
+							<i class="icon-tradein"></i>
+						</div>
+						<h6 class="tt-title">Value Your Trade-In</h6>
+					</a>
+					<div class="tt-item-smal">
+						<div class="box-icon">
+							<i class="icon-right-arrow"></i>
+						</div>
+					</div>
+					<a href="/faq" class="tt-item">
+						<div class="box-icon">
+							<div class="tt-line-dotted tt-left"></div>
+							<div class="tt-line-dotted tt-right"></div>
+							<i class="icon-financing"></i>
+						</div>
+						<h6 class="tt-title">Get Easy Financing</h6>
+					</a>
+					<div class="tt-item-smal">
+						<div class="box-icon">
+							<i class="icon-right-arrow"></i>
+						</div>
+					</div>
+					<a href="/faq" class="tt-item">
+						<div class="box-icon">
+							<div class="tt-line-dotted tt-left"></div>
+							<i class="icon-payment"></i>
+						</div>
+						<h6 class="tt-title">Make A Payment</h6>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent">
+		<div class="container">
+			<div class="tt-block-title">
+				<h3 class="tt-title">Weekly Specials</h3>
+				<div class="tt-description">Find your perfect car</div>
+			</div>
+		</div>
+		<div class="portfolio-masonry-layout">
+			<div class="container hidden-mobile">
+				<a href="javascript:void(0)" class="extra-link">View more cars</a>
+			</div>
+			<div class="tt-portfolio-masonry">
+				<div class="tt-filter-nav">
+					<div class="button active" data-filter="*">ALL</div>
+					<div class="button" data-filter=".sort-value-01">New</div>
+					<div class="button" data-filter=".sort-value-02">Used</div>
+				</div>
+				<div class="tt-portfolio-content layout-default">
+					<% if (oldProducts.products.length > 0) { %>
+						<% oldProducts.products.map(_old => { %>
+							<div class="element-item sort-value-02">
+								<a class="tt-portfolio-item" href="http://localhost:3000/shop/<%= _old.id %>">
+									<figure>
+										<img src="http://localhost:3000/product/<%= _old.images[0] %>" alt="">
+										<figcaption>
+											<h5 class="tt-title"><span>USED</span> <%= _old.title %></h5>
+											<span class="tt-price">Rs. <%= _old.price %></span>
+										</figcaption>
+									</figure>
+								</a>
+							</div>
+						<% }) %>
+					<% } %>
+
+					<% if (newProducts.products.length > 0) { %>
+						<% newProducts.products.map(_new => { %>
+							<div class="element-item sort-value-01">
+								<a class="tt-portfolio-item" href="http://localhost:3000/shop/<%= _new.id %>">
+									<figure>
+										<img src="http://localhost:3000/product/<%= _new.images[0] %>" alt="">
+										<figcaption>
+											<h5 class="tt-title"><span>USED</span> <%= _new.title %></h5>
+											<span class="tt-price">Rs. <%= _new.price %></span>
+										</figcaption>
+									</figure>
+								</a>
+							</div>
+						<% }) %>
+					<% } %>
+				</div>
+			</div>
+			<div class="container visible-mobile">
+				<a href="javascript:void(0)-no-sidebar" class="extra-link">View more cars</a>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent no-margin">
+		<div class="tt-layout01-bg">
+			<div class="container">
+				<div class="tt-block-title">
+					<h3 class="tt-title">What We Offer</h3>
+					<div class="tt-description">our featured services</div>
+				</div>
+			</div>
+			<div class="tt-layout01">
+				<div class="layout01-desctope">
+					<div class="container">
+						<div class="row no-gutters">
+							<div class="col-6 col-lg-4">
+								<div class="tt-item tt-icon-right">
+									<div class="tt-item-icon">
+										<i class="icon-car-washing-machine"></i>
+									</div>
+									<div class="tt-item-content">
+										<h6 class="tt-title">Pre-Sale Preparation</h6>
+										<p>
+											Before you sell your car, or trade it in to get something bigger or better, we can help you make your car look as good as possible before anyone comes to see it.
+
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-lg-4  ml-auto">
+								<div class="tt-item">
+									<div class="tt-item-icon">
+										<i class="icon-financing"></i>
+									</div>
+									<div class="tt-item-content">
+										<h6 class="tt-title">Financing</h6>
+										<p>
+											Car Fusion has formed close relationships with several local and national lenders, so we're able to offer financing rates that many other car dealers can't offer.
+
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row no-gutters">
+							<div class="col-6 col-lg-4">
+								<div class="tt-item tt-icon-right tt-icon-bottom">
+									<div class="tt-item-icon">
+										<i class="icon-tradein2"></i>
+									</div>
+									<div class="tt-item-content">
+										<h6 class="tt-title">Trade-In Service</h6>
+										<p>
+											Make the most of our simple and hassle-free trade-in program! Our service allows you to purchase a new car at an attractive price, while saving you all the trouble of handling your old car.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-lg-4  ml-auto">
+								<div class="tt-item  tt-icon-bottom">
+									<div class="tt-item-icon">
+										<i class="icon-testdrive"></i>
+									</div>
+									<div class="tt-item-content">
+										<h6 class="tt-title">Test Drive Any Car </h6>
+										<p>
+											We welcome you to stop by and take a look at the pristine inventory we offer. Most importantly, if you have any questions or concerns, speak to the seller immediately.<br>
+											<a class="link-tel" href="javascript:void(0)">+01 123 456 78</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layout01-mobile">
+					<div class="slider-layout">
+						<div class="tt-item">
+							<div class="tt-item-icon">
+								<i class="icon-car-washing-machine"></i>
+							</div>
+							<div class="tt-item-content">
+								<h6 class="tt-title">Pre-Sale Preparation</h6>
+								<p>
+									Before you sell your car, or trade it in to get something bigger or better, we can help you make your car look as good as possible before anyone comes to see it.
+
+								</p>
+							</div>
+						</div>
+						<div class="tt-item">
+							<div class="tt-item-icon">
+								<i class="icon-tradein2"></i>
+							</div>
+							<div class="tt-item-content">
+								<h6 class="tt-title">Trade-In Service</h6>
+								<p>
+									Make the most of our simple and hassle-free trade-in program! Our service allows you to purchase a new car at an attractive price, while saving you all the trouble of handling your old car.
+
+								</p>
+							</div>
+						</div>
+						<div class="tt-item">
+							<div class="tt-item-icon">
+								<i class="icon-financing"></i>
+							</div>
+							<div class="tt-item-content">
+								<h6 class="tt-title">Financing</h6>
+								<p>
+									Car Fusion has formed close relationships with several local and national lenders, so we're able to offer financing rates that many other car dealers can't offer.
+								</p>
+							</div>
+						</div>
+						<div class="tt-item">
+							<div class="tt-item-icon">
+								<i class="icon-testdrive"></i>
+							</div>
+							<div class="tt-item-content">
+								<h6 class="tt-title">Test Drive Any Car</h6>
+								<p>
+									We welcome you to stop by and take a look at the pristine inventory we offer. Most importantly, if you have any questions or concerns, speak to the seller immediately.
+									<br>
+									<a class="link-tel" href="javascript:void(0)">+01 123 456 78</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent no-margin">
+		<div class="tt-promo-01" data-bg="http://localhost:3000/images/custom/box-promo01.jpg">
+			<div class="container">
+				<div class="tt-block-title">
+					<h3 class="tt-title">What Have We Achieved</h3>
+					<div class="tt-description">Real Figures</div>
+				</div>
+				<div class="tt-promo-layout counter-js slider-layout">
+					<div class="tt-item">
+						<div class="box-value">
+							<i class="icon-vehicles"></i>
+							<span><span class="tt-counter" data-from="0" id="total_vehicles" data-to="<%= products.products.length %>">0</span></span>
+						</div>
+						<h6 class="tt-title">Vehicles In Stock</h6>
+					</div>
+					<div class="tt-item">
+						<div class="box-value">
+							<i class="icon-awards"></i>
+							<span><span class="tt-counter" data-from="0" data-to="254">0</span></span>
+						</div>
+						<h6 class="tt-title">Awards</h6>
+					</div>
+					<div class="tt-item">
+						<div class="box-value">
+							<i class="icon-customers"></i>
+							<span><span class="tt-counter" data-from="0" data-to="100">0</span>%</span>
+						</div>
+						<h6 class="tt-title">Happy Customers</h6>
+					</div>
+					<div class="tt-item">
+						<div class="box-value">
+							<i class="icon-staff"></i>
+							<span><span class="tt-counter" data-from="0" data-to="50">0</span>+</span>
+						</div>
+						<h6 class="tt-title">Qualified Staff</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent">
+		<div class="container">
+			<div class="tt-block-title">
+				<h3 class="tt-title">What's New</h3>
+				<div class="tt-description">Read our latest blog posts</div>
+			</div>
+			<div class="js-carousel-news tt-media-carousel tt-arrow-center slick-alignment-arrows dots-error content-error" id="blog_wrapper">
+				<% if (blogs.posts.length > 0) { %>
+					<% blogs.posts.map(post => { %>
+						<% const monthNames = ["Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]; %>
+						<div>
+							<a href="/blog/<%= post.id %>" class="tt-media">
+								<div class="tt-img">
+									<img src="/blogpost/<%= post.thumbnail %>" alt="" />
+								</div>
+								<div class="tt-layot">
+									<div class="tt-time">
+										<span><%= new Date(post.createdAt).getDate() %></span>
+										<%= monthNames[new Date(post.createdAt).getMonth()] %>
+									</div>
+									<h3 class="title"><%= post.title %></h3>
+									<p><%= post.description.slice(0, 80) %>...</p>
+									<span class="tt-link">read more</span>
+								</div>
+							</a>
+						</div>
+					<% }) %>
+				<% } %>
+			</div>
+		</div>
+	</div>
+	<div class="container-indent">
+		<div class="box-reviews">
+			<div class="container">
+				<div class="tt-block-title">
+					<h3 class="tt-title">Our Testimonials</h3>
+					<div class="tt-description">What our happy clients say about us</div>
+				</div>
+				<div class="tt-reviews-carousel js-reviews-carousel tt-arrow-center slick-alignment-arrows" data-dots="true">
+					<div class="tt-reviews-content">
+						<div class="box-show-rating">
+							<div class="tt-rating">
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+							</div>
+						</div>
+						Great treatment right form the get go. Was looking at a car that had just arrived on the lot so it wasn't immediately available for
+						a test drive and didn't have a price yet, but my salesman, kept me fully apprised of the situation. Offered a refundable deposit
+						until I could test drive it and make a decision. Great car, great sales team.
+						<p class="tt-title">
+							Charles M. Worsham, <span>Toyota C-HR Eclipse</span>
+						</p>
+					</div>
+					<div class="tt-reviews-content">
+						<div class="box-show-rating">
+							<div class="tt-rating">
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+							</div>
+						</div>
+						Great treatment right form the get go. Was looking at a car that had just arrived on the lot so it wasn't immediately available for
+						a test drive and didn't have a price yet, but my salesman, kept me fully apprised of the situation. Offered a refundable deposit
+						until I could test drive it and make a decision. Great car, great sales team.
+						<p class="tt-title">
+							Charles M. Worsham, <span>Toyota C-HR Eclipse</span>
+						</p>
+					</div>
+					<div class="tt-reviews-content">
+						<div class="box-show-rating">
+							<div class="tt-rating">
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+							</div>
+						</div>
+						Great treatment right form the get go. Was looking at a car that had just arrived on the lot so it wasn't immediately available for
+						a test drive and didn't have a price yet, but my salesman, kept me fully apprised of the situation. Offered a refundable deposit
+						until I could test drive it and make a decision. Great car, great sales team.
+						<p class="tt-title">
+							Charles M. Worsham, <span>Toyota C-HR Eclipse</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="box-reviews-img">
+				<div class="slide-img01 tt-show"><img src="http://localhost:3000/images/custom/parallax01-img01.png" alt=""></div>
+				<div class="slide-img02"><img src="http://localhost:3000/images/custom/parallax01-img02.png" alt=""></div>
+				<div class="slide-img03"><img src="http://localhost:3000/images/custom/parallax01-img03.png" alt=""></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<%- include('../../layout/footer.ejs'); %>
+<script src="pages/home/home.js"></script>
